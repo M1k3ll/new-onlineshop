@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+
+{% block page_title %}
+    Logout
+{% endblock %}
+{% block content %}
+    <h1>Are u sure to Logout?</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <input type="submit" value="Logout">
+    </form>
+{% endblock %}

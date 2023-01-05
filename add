@@ -1,0 +1,29 @@
+[33mcommit f5e0b3fc20435e83f672e17bfe4e20dcd7b14e09[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: unknown <mikel@yahoo.com>
+Date:   Fri Dec 30 23:03:17 2022 +0330
+
+    add django allauth
+
+[33mcommit 0086881f6418d5ccd740a4f78ae7d426627d830b[m
+Author: unknown <mikel@yahoo.com>
+Date:   Tue Dec 27 13:40:59 2022 +0330
+
+    add crispy forms
+
+[33mcommit b1805baa5d93e4579178df5ba0da83fd48e09765[m
+Author: unknown <mikel@yahoo.com>
+Date:   Tue Dec 27 12:55:26 2022 +0330
+
+    add login and signup
+
+[33mcommit c4f1b609c5650248a3d535bde59ca316c4b43e63[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: unknown <mikel@yahoo.com>
+Date:   Tue Dec 27 01:02:25 2022 +0330
+
+    add Custom User
+
+[33mcommit f57dc78e287cc2cb6d8c4c0abf482ad125f710fb[m
+Author: unknown <mikel@yahoo.com>
+Date:   Mon Dec 26 16:55:35 2022 +0330
+
+    initial commit

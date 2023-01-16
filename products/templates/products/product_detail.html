@@ -1,6 +1,8 @@
 {% extends '_base.html' %}
+{% load crispy_forms_filters %}
 {% load static %}
 {% block content %}
+    {%  load crispy_forms_tags %}
     <!-- Main Wrapper Start -->
     <div class="wrapper">
 
@@ -119,32 +121,34 @@
                                             <h3 class="review__title">۱ نظر برای لباس تابستانی</h3>
                                             <ul class="review__list">
                                                 {% for comment in product.comments.all %}
-                                                <li class="review__item">
-                                                    <div class="review__container">
-                                                        <div class="review__text">
-                                                            <div class="d-flex flex-sm-row flex-row">
-                                                                <img src="{% static 'img/others/comment-1.jpg' %}"
-                                                                     alt="Review Avatar" class="review__avatar">
-                                                                <div>
-                                                                    <div class="review__meta">
-                                                                        <strong class="review__author px-4">{{ comment.author.username }}</strong>
-                                                                        <span class="review__dash">-</span>
-                                                                        <span class="review__published-date">{{ comment.datetimecreate }}</span>
-                                                                    </div>
-                                                                    <div class="product-rating">
-                                                                        <div class="m-0 star-rating star-five">
+                                                    <li class="review__item">
+                                                        <div class="review__container">
+                                                            <div class="review__text">
+                                                                <div class="d-flex flex-sm-row flex-row">
+                                                                    <img src="{% static 'img/others/comment-1.jpg' %}"
+                                                                         alt="Review Avatar" class="review__avatar p-4">
+                                                                    <div>
+                                                                        <div class="review__meta">
+                                                                            <strong class="review__author px-10">{{ comment.author.username }}
+                                                                                <p>{{ comment.datetime_created }}</p>
+                                                                            </strong>
+                                                                            <span class="review__dash">-</span>
+                                                                            <span class="review__published-date">{{ comment.datetimecreate }}</span>
+                                                                        </div>
+                                                                        <div class="product-rating">
+                                                                            <div class="m-0 star-rating star-five">
                                                                             <span>Rated <strong
-                                                                                    class="rating">5.00</strong> {{ product.stars}}</span>
+                                                                                    class="rating">5.00</strong> {{ product.stars }}</span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <p class="review__description text-right px-4 mr-5 pr-5">
+                                                                    {{ comment.body }}
+                                                                </p>
                                                             </div>
-                                                            <p class="review__description text-right px-4">
-                                                                {{ comment.body }}
-                                                            </p>
                                                         </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
 
                                                 {% endfor %}
 
@@ -155,38 +159,12 @@
                                                     <div class="col-lg-8 m-auto">
                                                         <span class="reply-title pull-right">نظر خود را بنویسید</span>
                                                         <br>
-                                                        <form action="#" class="form text-right">
-                                                            <div class="form-notes mb--20">
-                                                                <p class="my-3"><span class="required">*</span>ایمیل شما
-                                                                    برای دیگران نشان داده نمیشود.</p>
-                                                            </div>
-                                                            <div class="form__group mb--10">
-                                                                <label class="form__label d-block" for="email">متن نظر
-                                                                    شما<span class="required">*</span></label>
-                                                                <textarea name="review" id="review"
-                                                                          class="form__input form__input--textarea"></textarea>
-                                                            </div>
-                                                            <div class="form__group mb--20">
-                                                                <label class="form__label d-block" for="name">نام
-                                                                    شما<span class="required">*</span></label>
-                                                                <input type="text" name="name" id="name"
-                                                                       class="form__input">
-                                                            </div>
-                                                            <div class="form__group mb--20">
-                                                                <label class="form__label d-block" for="email">ایمیل شما<span
-                                                                        class="required">*</span></label>
-                                                                <input type="email" name="email" id="email"
-                                                                       class="form__input">
-                                                            </div>
-                                                            <div class="form__group">
-                                                                <div class="form-row">
-                                                                    <div class="col-12">
-                                                                        <input type="submit" value="ارسال"
-                                                                               class="btn-submit">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        <form action="" method="post">
+                                                            {% csrf_token %}
+                                                            {{ comment_form|crispy }}
+                                                            <input type="submit" value="ارسال">
                                                         </form>
+{#
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load i18n %}
 {% load crispy_forms_filters %}
 {% load static %}
 {% block content %}
@@ -50,15 +51,15 @@
                                     </div>
                                     <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2"
                                             onclick="window.location.href='cart.html'">
-                                        اضافه به سبد خرید
+                                        {% translate 'Add To card' %}
                                     </button>
                                 </div>
                                 <div class="product-footer-meta mt-5 pt-5">
-                                    <p><span class="m-0">دسته بندی ها:</span>
-                                        <a href="shop.html">لباس</a>,
-                                        <a href="shop.html">تابستانی</a>,
-                                        <a href="shop.html">گرم</a>,
-                                        <a href="shop.html">زنانه</a>
+                                    <p><span class="m-0">{% translate 'Category' %}:</span>
+                                        <a href="shop.html">{% translate 'Clothes' %}</a>,
+                                        <a href="shop.html">{% translate 'Summer' %}</a>,
+                                        <a href="shop.html">{% translate 'Warm' %}</a>,
+                                        <a href="shop.html">{% translate 'Women' %}</a>
                                     </p>
                                 </div>
                             </div>
@@ -70,7 +71,7 @@
                                 <div class="nav nav-tabs product-data-tab__head" id="product-tab" role="tablist">
                                     <a class="m-0 product-data-tab__link nav-link active" id="nav-description-tab"
                                        data-toggle="tab" href="#nav-description" role="tab" aria-selected="true">
-                                        <span>توضیحات محصول</span>
+                                        <span>{% translate 'Product Description' %}</span>
                                     </a>
                                     <a class="m-0 product-data-tab__link nav-link" id="nav-info-tab" data-toggle="tab"
                                        href="#nav-info" role="tab" aria-selected="true">
@@ -157,12 +158,12 @@
                                                 <div class="row">
                                                     <div class="border-top py-5 w-100"></div>
                                                     <div class="col-lg-8 m-auto">
-                                                        <span class="reply-title pull-right">نظر خود را بنویسید</span>
+                                                        <span class="reply-title pull-right">{% translate 'Write your commnet' %}</span>
                                                         <br>
                                                         <form action="{% url 'comment_create' product.id %}" method="post">
                                                             {% csrf_token %}
                                                             {{ comment_form|crispy }}
-                                                            <input type="submit" value="ارسال">
+                                                            <input type="submit" value="submit">
                                                         </form>
 {#
                                                     </div>
@@ -198,7 +199,7 @@
                                 </ul>
                             </div>
                             <div class="footer-widget">
-                                Codingyar.com © | all rights reserved
+                                all rights reserved
                             </div>
                         </div>
                     </div>
